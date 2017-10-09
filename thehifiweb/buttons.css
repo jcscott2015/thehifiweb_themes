@@ -1,0 +1,136 @@
+/* -------------------------------------------------------------
+ *	BUTTONS
+ *
+ *  This style sheet manages styles for dynamic form buttons & link "buttons".
+ *  These styles can be overloaded with styles for sections or pages.
+ *  Dynamic tabs are also in this style sheet.
+ *
+ * Standard button heights:
+ *   Small and Small with Arrow: 22px
+ *   Orange: 24px
+ *   Primary and Secondary: 34px
+ * -------------------------------------------------------------
+ */
+
+button, .btn
+{
+	cursor: pointer;
+	border-style: none;
+	border-width: 0; /* for IE */
+	background-color: transparent;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+button span, button em, a.btn span, a.btn em
+{
+	display: inline-block; /* needed for FF on Windows */
+	font-style: normal;
+	text-align: center;
+}
+
+/**
+ * IE6 doesn't support :hover on anything but anchor tags. The button:hover
+ * CSS calls will be ignored in IE6, but they will still function as buttons.
+ **/
+button:hover, a:hover.btn { color: #fff; }
+
+.button-group { margin: 10px 0 }
+.button-group button { margin-right: 5px }
+
+/* Small Gray */
+.smgray
+{
+	font-family: "Trebuchet MS";
+	color: #01294d;
+	text-transform: lowercase;
+}
+
+a.btn.smgray span, a.btn.smgray em
+{
+	line-height: 22px;
+}
+
+button.smgray span, button.smgray em
+{
+	height: 22px;
+	line-height: 22px;
+}
+
+.smgray span
+{
+	padding-left: 5px;
+	background: url(images/btn-grey-22.png) no-repeat;
+}
+
+.smgray em
+{
+	padding-right: 8px;
+	padding-left: 3px;
+	background: url(images/btn-grey-22.png) no-repeat right -22px;
+}
+
+a:hover.smgray span, a:hover.smgray em, 
+button:hover.smgray span, button:hover.smgray em, 
+a.smgray.active span, a.smgray.active em, 
+button.smgray.active span, button.smgray.active em 
+{
+	color: #666;
+}
+
+/* Orange */
+.orange, .orange-purple
+{
+	font-family: "Trebuchet MS";
+	color: #442602;
+	font-size: 1.05em !important; /* Equivalent for 14pt at 96 ppi - (14/12) * .9 = 1.05em */
+}
+
+a.btn.orange span, a.btn.orange em, 
+a.btn.orange-purple span, a.btn.orange-purple em
+{
+	line-height: 24px;
+	font-weight: normal;
+}
+
+button.orange span, button.orange em, 
+button.orange-purple span, button.orange-purple em
+{
+	height: 24px;
+	line-height: 24px;
+	font-weight: normal;
+}
+
+.orange span, .orange-purple span
+{
+	padding-left: 4px;
+	background: url(images/btn-orange-24.png) no-repeat;
+}
+
+.orange-purple span
+{
+	background: url(images/btn-orange-24.png) no-repeat left -48px;
+}
+
+.orange em, .orange-purple em
+{
+	padding-right: 14px;
+	background: url(images/btn-orange-24.png) no-repeat right -24px;
+}
+
+.orange-purple em
+{
+	background: url(images/btn-orange-24.png) no-repeat right -72px;
+}
+
+button:hover.orange span, a:hover.orange span, 
+button:hover.orange em, a:hover.orange em, 
+button.orange.active span, a.orange.active span, 
+button.orange.active em, a.orange.active em, 
+button:hover.orange-purple span, a:hover.orange-purple span, 
+button:hover.orange-purple em, a:hover.orange-purple em, 
+button.orange-purple.active span, a.orange-purple.active span, 
+button.orange-purple.active em, a.orange-purple.active em
+{
+	color: #fff;
+}

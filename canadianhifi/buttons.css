@@ -1,0 +1,136 @@
+/* -------------------------------------------------------------
+ *	BUTTONS
+ *
+ *  This style sheet manages styles for dynamic form buttons & link "buttons".
+ *  These styles can be overloaded with styles for sections or pages.
+ *  Dynamic tabs are also in this style sheet.
+ *
+ * Standard button heights:
+ *   Small and Small with Arrow: 22px
+ *   red: 24px
+ *   Primary and Secondary: 34px
+ * -------------------------------------------------------------
+ */
+
+button, .btn
+{
+	cursor: pointer;
+	border-style: none;
+	border-width: 0; /* for IE */
+	background-color: transparent;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+button span, button em, a.btn span, a.btn em
+{
+	display: inline-block; /* needed for FF on Windows */
+	font-style: normal;
+	text-align: center;
+}
+
+/**
+ * IE6 doesn't support :hover on anything but anchor tags. The button:hover
+ * CSS calls will be ignored in IE6, but they will still function as buttons.
+ **/
+button:hover, a:hover.btn { color: #fff; }
+
+.button-group { margin: 10px 0 }
+.button-group button { margin-right: 5px }
+
+/* Small Gray */
+.smgray
+{
+	font-family: "Trebuchet MS";
+	color: #01294d;
+	text-transform: lowercase;
+}
+
+a.btn.smgray span, a.btn.smgray em
+{
+	line-height: 22px;
+}
+
+button.smgray span, button.smgray em
+{
+	height: 22px;
+	line-height: 22px;
+}
+
+.smgray span
+{
+	padding-left: 5px;
+	background: url(images/btn-grey-22.png) no-repeat;
+}
+
+.smgray em
+{
+	padding-right: 8px;
+	padding-left: 3px;
+	background: url(images/btn-grey-22.png) no-repeat right -22px;
+}
+
+a:hover.smgray span, a:hover.smgray em, 
+button:hover.smgray span, button:hover.smgray em, 
+a.smgray.active span, a.smgray.active em, 
+button.smgray.active span, button.smgray.active em 
+{
+	color: #666;
+}
+
+/* Red */
+.red, .red-grey
+{
+	font-family: "Trebuchet MS";
+	color: #fff;
+	font-size: 1.05em !important; /* Equivalent for 14pt at 96 ppi - (14/12) * .9 = 1.05em */
+}
+
+a.btn.red span, a.btn.red em, 
+a.btn.red-grey span, a.btn.red-grey em
+{
+	line-height: 24px;
+	font-weight: normal;
+}
+
+button.red span, button.red em, 
+button.red-grey span, button.red-grey em
+{
+	height: 24px;
+	line-height: 24px;
+	font-weight: normal;
+}
+
+.red span, .red-grey span
+{
+	padding-left: 5px;
+	background: url(images/btn-red-24.png) no-repeat left -49px;
+}
+
+.red-grey span
+{
+	background: url(images/btn-red-24.png) no-repeat;
+}
+
+.red em, .red-grey em
+{
+	padding-right: 15px;
+	background: url(images/btn-red-24.png) no-repeat right -73px;
+}
+
+.red-grey em
+{
+	background: url(images/btn-red-24.png) no-repeat right -24px;
+}
+
+button:hover.red span, a:hover.red span, 
+button:hover.red em, a:hover.red em, 
+button.red.active span, a.red.active span, 
+button.red.active em, a.red.active em, 
+button:hover.red-grey span, a:hover.red-grey span, 
+button:hover.red-grey em, a:hover.red-grey em, 
+button.red-grey.active span, a.red-grey.active span, 
+button.red-grey.active em, a.red-grey.active em
+{
+	color: #292828;
+}

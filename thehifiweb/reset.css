@@ -1,0 +1,39 @@
+/* -------------------------------------------------------------
+ *	RESET CSS
+ *
+ * Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+ * modified by: John Scott
+ * modified date: 10/22/2009
+ * Code licensed under the BSD License:
+ * http://developer.yahoo.net/yui/license.txt
+ * version: 2.5.2
+ * ------------------------------------------------------------- 
+ */
+html{color:#000;background:#FFF;}
+body,button,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,label{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+button,fieldset,img{border:none;}
+address,caption,cite,code,dfn,em,strong,b,th,var{font-style:normal;font-weight:normal;}
+li{list-style-type:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym {border:none;font-variant:normal;}
+/* to preserve line-height and selector appearance */
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+/* to enable resizing for IE*/
+input,textarea,select{font-size:100%;}
+/* for vertical align issues with Firefox */
+input{-moz-box-sizing:content-box;}
+/* because legend doesn't inherit in IE */
+legend{color:#000;}
+/* remember to define focus styles! */
+:focus{outline: none;}
+/* Hide Dotted Outline on Image Links in Firefox */
+*{outline:none;}
+/* IE button display bug hack. */
+button{overflow:visible;}
+/* Remove default button padding in Firefox */
+button,button::-moz-focus-inner {background:none;width:auto;border:0;padding:0;-moz-box-sizing:content-box;}

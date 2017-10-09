@@ -1,0 +1,957 @@
+/* $Id: layout-liquid.css,v 1.5.2.4 2009/02/13 19:30:50 johnalbin Exp $ */
+
+/*
+ * LAYOUT STYLES
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout is based on the Zen Columns layout method.
+ *   http://drupal.org/node/201428
+ *
+ * Only CSS that affects the layout (positioning) of major elements should be
+ * listed here.  Such as:
+ *   display, position, float, clear, width, height, min-width, min-height
+ *   margin, border, padding, overflow
+ */
+
+/** body **/
+  html, body
+  {
+  }
+
+  div.last { margin-right: 0; }
+  
+  #page-shadow,
+  #page,
+  #closure-blocks
+  {
+	background: url(images/bkgd-content-top.jpg) no-repeat center top;
+	width: 1207px;
+	margin: 0 auto;
+  }
+
+  #page-inner
+  {
+	background: url(images/bkgd-shadow-top.jpg) no-repeat 206px 187px;
+	margin: 0; /* for "Jogging Background bug" */
+  }
+
+  #page-shadow
+  {
+	background: url(images/bkgd-shadow-repeat.png) repeat-y 206px top;
+  }
+
+  .no-sidebars #page-shadow, .sidebar-left #page-shadow
+  {
+	background: url(images/bkgd-shadow-repeat-2col.png) repeat-y 206px top;
+  }
+
+  #navigation-top,
+  #navigation
+  {
+    position: absolute; /* Take the named anchors out of the doc flow    */
+    left: -10000px;     /* and prevent any anchor styles from appearing. */
+  }
+
+  .breadcrumb
+  {
+	color: #fff;
+  }
+
+  .breadcrumb a
+  {
+	color: #fff;
+	text-decoration: none;
+	text-transform: lowercase;
+  }
+
+  .breadcrumb a:hover, 
+  .breadcrumb a:active, 
+  .breadcrumb a.active
+  {
+	color: #27c6f5;
+	text-decoration: none;
+  }
+
+  #skip-to-nav
+  {
+    float: right;
+    margin: 0 !important;
+    font-size: 0.8em;
+  }
+
+  #skip-to-nav a:link, #skip-to-nav a:visited
+  {
+    color: #fff; /* Same as background color of page */
+  }
+
+  #skip-to-nav a:hover
+  {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Alternatively, the skip-to-nav link can be completely hidden until a user tabs
+     to the link. Un-comment the following CSS to use this technique. */
+  /*
+  #skip-to-nav a, #skip-to-nav a:hover, #skip-to-nav a:visited
+  {
+    position: absolute;
+    left: 0;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  #skip-to-nav a:active, #skip-to-nav a:focus
+  {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  */
+
+/** header **/
+  #header
+  {
+	background: url(images/dec-wave.png) no-repeat 80px 38px;
+  }
+
+  #header-inner
+  {
+	width: 1050px;
+	height: 132px;
+	margin: 0 auto;
+	padding: 33px 0 15px 0;
+	/*overflow: hidden;*/
+	position: relative;
+  }
+
+  #header-group
+  {
+  	width: 100%;
+  	margin-bottom: 10px;
+  }
+  
+  #logo-title
+  {
+  }
+
+  #logo
+  {
+    float: left;
+	display: inline; /* IE6 double margin hack */
+	width: 315px;
+  }
+
+  #site-name
+  {
+  }
+
+  #site-slogan
+  {
+  }
+
+  #header-blocks
+  {
+  	position: absolute;
+  	width: 168px;
+  	height: 52px;
+  	left: 0;
+  	bottom: 26px;
+  }
+  
+  #phone-number
+  {
+	color: #fff;
+	font-size: 2.5em;
+	text-transform: lowercase;
+	margin-top: 22px;
+	font-family: "Trebuchet MS";
+  }
+  
+  #phone-number span
+  {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #27c6f5;
+	font-size: .7em;
+  }
+  
+  #payment-options
+  {
+    float: right;
+	display: inline; /* IE6 double margin hack */
+  	width: 125px;
+  	text-align: right;
+  	margin-top: 36px;
+  }
+
+/** main (container for everything else) **/
+  #main
+  {
+    position: relative;
+	width: 1072px;
+	margin: 0 auto;
+  }
+
+  #main-inner
+  {
+  }
+
+/** content **/
+  #content
+  {
+    float: left;
+    width: 100%;
+    margin-left: 0;
+    margin-right: -100%; /* Negative value of #content's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
+  }
+
+  #content-wrapper
+  {
+	background: url(images/bkgd-shadow-top.jpg) no-repeat 115px 141px;
+	padding-left: 5px;
+  }
+
+  #content-inner, 
+  .no-sidebars #content-inner
+  {
+	padding: 0 10px;
+    margin: 0;
+  }
+
+  #content-area
+  {
+  	background-color: #fff;
+  	padding: 10px;
+  }
+
+  .no-sidebars #content-inner
+  {
+	background: #fff url(images/bkgd-center-top.jpg) no-repeat -67px -180px;
+  }
+
+  #content-inner { min-height: 680px; }
+  /* for Internet Explorer */
+  /*\*/
+  * html #content-inner { height: 680px; }
+  /**/
+
+  .sidebar-left #content-inner
+  {
+    margin-left: 184px; /* The width + left margin of #sidebar-left. */
+    margin-right: 0;
+	background: #fff url(images/bkgd-center-top.jpg) no-repeat -252px -180px;
+  }
+
+  .sidebar-right #content-inner
+  {
+    margin-left: 0;
+    margin-right: 140px; /* The width + right margin of #sidebar-right. */
+	background: #fff url(images/bkgd-center-top.jpg) no-repeat -67px -180px;
+  }
+
+  .two-sidebars #content-inner
+  {
+    margin-left: 184px; /* The width + left margin of #sidebar-left. */
+    margin-right: 140px; /* The width + right margin of #sidebar-right. */
+	background: #fff url(images/bkgd-center-top.jpg) no-repeat -252px -180px;
+  }
+
+/** navbar **/
+  #navbar
+  {
+    float: left;
+    width: 100%;
+    margin-left: 0;
+    margin-right: -100%; /* Negative value of #navbar's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
+    /*height: 3.6em;*/ /* The navbar can have any arbritrary height. We picked one
+                      that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
+                      Set this to the same value as the margin-top below. */
+  }
+
+  .with-navbar #content,
+  .with-navbar #sidebar-left,
+  .with-navbar #sidebar-right
+  {
+    /*margin-top: 3.6em;*/ /* Set this to the same value as the navbar height above. */
+  }
+
+  #navbar-inner
+  {
+  }
+
+  #sign-up-search
+  {
+  	margin-left: 180px;
+  	margin-right: 75px;
+  }
+
+  #sign-up-search label, .finder-1 label
+  {
+  	color: #fff;
+  	font-weight: normal !important;
+	line-height: 24px;
+	display: inline;
+	text-transform: lowercase;
+  }
+
+  #finder-block-1
+  {
+  	text-align: right;
+  }
+
+  #finder-block-1 .form-item
+  {
+  	margin: 0 0 5px 0;
+  }
+
+  .finder-1 label
+  {
+	display: block;
+  }
+
+  #sign-up-search input, .finder-1 input
+  {
+  	width: 178px;
+  	padding: 2px 0;
+  }
+
+  .finder-1 input
+  {
+  	width: 160px;
+  }
+
+  #sign-up-box
+  {
+	float: left;
+	display: inline; /* IE6 double margin hack */
+	width: 475px;
+  	margin-right: 10px;
+  }
+
+  #search-box
+  {
+	float: right;
+	display: inline; /* IE6 double margin hack */
+ 	/*width: 340px;*/
+ }
+
+/** sign-up webform **/
+  #sign-up-search .form-item {
+	float: left;
+	display: inline; /* IE6 double margin hack */
+	margin: 0;
+	margin: 0 5px;
+  }
+
+  #sign-up-search .form-submit {
+	float: left; /* IE6 double margin hack */
+	display: inline;
+  }
+
+  /* override preferences filter module css nonsense */
+  #edit-submit
+  {
+  	margin-top: 0;
+  }
+  
+  #filter-perms-admin-perm-filter #edit-submit
+  {
+  	margin-top: 138px;
+  }
+
+  #primary
+  {
+    float: left;
+	display: inline; /* IE6 double margin hack */
+	width: 564px;
+	margin: 0 5px;
+	text-align: center;
+  }
+
+  #secondary
+  {
+    position: absolute;
+	width: 120px;
+	top: 33px;
+	right: 0;
+  }
+
+  #primary ul.links,
+  #secondary ul.links
+  {
+  	margin: 0;
+  }
+  
+  #secondary ul.links
+  {
+  	text-align: center;
+  }
+  
+  #primary ul.links li,
+  #secondary ul.links li
+  {
+	display: inline; /* IE6 double margin hack */
+	padding-right: 10px;
+  }
+
+  #primary ul.links li.last,
+  #secondary ul.links li.last
+  {
+	padding-right: 0;
+  }
+
+  #secondary ul.links li
+  {
+	padding-left: 0;
+  }
+
+  #primary ul.links li a,
+  #secondary ul.links li a
+  {
+	color: #fff;
+	font-size: 1.2em;
+	text-decoration: none;
+	text-transform: lowercase;
+  }
+
+  #primary ul.links li a:hover, 
+  #primary ul.links li a:active, 
+  #primary ul.links li a.active,
+  #secondary ul.links li a:hover, 
+  #secondary ul.links li a:active, 
+  #secondary ul.links li a.active
+  {
+	color: #27c6f5;
+	text-decoration: none;
+  }
+
+  #navbar ul /* Primary and secondary links */
+  {
+  }
+
+  #navbar li /* A simple method to get navbar links to appear in one line. */
+  {
+  }
+
+  /* There are many methods to get navbar links to appear in one line.
+   * Here's an alternate method: */
+  /*
+  #navbar li
+  {
+    display: inline;
+    padding: 0 10px 0 0;
+  }
+  */
+
+/** sidebar-left **/
+  #sidebar-left
+  {
+    float: left;
+    width: 184px;
+    margin-left: 0;
+    margin-right: -184px; /* Negative value of #sidebar-left's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
+    overflow: hidden;
+  }
+
+  #sidebar-left-inner
+  {
+    margin: 0 20px 0 0;
+    padding: 0;
+  }
+
+/** sidebar-right **/
+  #sidebar-right
+  {
+    float: right;
+    width: 140px;
+    margin-left: -140px; /* Negative value of #sidebar-right's width + right margin. */
+    margin-right: 0;
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
+	background: url(images/bkgd-right-top.jpg) no-repeat -988px -179px;
+  }
+
+  #sidebar-right-inner
+  {
+    margin: 0 0 0 20px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+/** footer **/
+  #footer
+  {
+	background: #161b64 url(images/bkgd-shadow-bottom.png) no-repeat 206px top;
+  }
+
+  #footer-inner
+  {
+	width: 846px;
+	margin: 0 auto;
+	padding: 20px 20px 20px 184px;
+  }
+
+  #footer-group
+  {
+	color: #fff;
+  }
+
+  #footer-group a
+  {
+	color: #fff;
+	text-decoration: none;
+  }
+
+  #footer-group a:hover, 
+  #footer-group a:active, 
+  #footer-group a.active
+  {
+	color: #fff;
+	text-decoration: underline;
+  }
+
+  #footer-group .left
+  {
+    float: left;
+	display: inline; /* IE6 double margin hack */
+	width: 60%;
+  }
+
+  #footer-group .left ul.menu li
+  {
+	display: inline; /* IE6 double margin hack */
+	padding-right: 20px;
+  }
+
+  #footer-group .left ul.menu li.last
+  {
+	padding-right: 0;
+  }
+
+  #footer-group .left ul.menu li a
+  {
+	color: #fff;
+	font-size: 1.2em;
+	text-decoration: none;
+	text-transform: lowercase;
+  }
+
+  #footer-group .left ul.menu li a:hover, 
+  #footer-group .left ul.menu li a:active, 
+  #footer-group .left ul.menu li a.active
+  {
+	color: #27c6f5;
+	text-decoration: none;
+  }
+
+  #footer-group .left p
+  {
+    padding-top: 10px;
+    font-size: .825em;
+  }
+
+  #footer-group .right
+  {
+    float: right;
+	display: inline; /* IE6 double margin hack */
+	width: 40%;
+	text-align: right;
+  }
+
+/** Product Page **/
+  .product-purchase-info
+  {
+	float: left;
+	display: inline; /* IE */
+	margin-right: 10px;
+	width: 270px;
+  }
+
+  .product-body
+  {
+	float: right;
+	display: inline; /* IE */
+  	background-color: #fff;
+  	padding: 10px;
+  	width: 428px;
+	min-height: 251px;
+}
+
+  .product-buy .call-us
+  {
+	margin: 10px 0;
+	font-weight: bold;
+  }
+
+  .call-us
+  {
+	text-align: center;
+  }
+
+  .contact-us
+  {
+	margin: 10px 0;
+  }
+  
+  .grey-box
+  {
+	margin: 10px 0;
+  }
+  
+  .grey-box-left, .grey-box-right
+  {
+	float: left;
+	display: inline; /* IE */
+  	border: 1px solid #9a9898;
+  	background-color: #d2d2d2;
+  	padding: 8px 16px;
+  }
+
+  .grey-box-right
+  {
+  	border-left: 0;
+  }
+  
+  .product-buy-no-attr .product-prices
+  {
+	float: left;
+	display: inline; /* IE */
+	margin-right: 10px;
+	font-size: 1.1em;
+	width: 160px;
+  }
+
+  .product-buy-no-attr .add-to-cart
+  {
+	float: right;
+	display: inline; /* IE */
+  }
+
+  .product-buy-no-attr .add-to-cart .node-add-to-cart
+  {
+	margin-top: 6px;
+  }
+
+  .product-buy-no-attr .add-to-cart #edit-qty-wrapper
+  {
+	margin: 0;
+	text-align: right;
+  }
+
+  .product-buy .product-prices
+  {
+	margin-right: 10px;
+	font-size: 1.1em;
+	width: 260px;
+  }
+
+  .product-buy .no-msrp, 
+  .product-buy-no-attr .no-msrp
+  {
+	margin-top: 6px;
+	line-height: 24px;
+  }
+
+  .product-prices ul li span.price-label
+  {
+	float: left;
+	display: block;
+	margin-right: 10px;
+	width: 35%;
+	white-space: nowrap;
+	font-size: .825em;
+  }
+  
+  .product-purchase-info .attributes .form-text
+  {
+  	width: 260px;
+  }
+
+  .product-prices ul li span.price-reg, 
+  .product-prices ul li span.price-msrp, 
+  .product-prices ul li span.price-ours
+  {
+	float: right;
+	display: block;
+	width: 49%;
+	text-align: right;
+  }
+
+  .price-reg, .price-msrp
+  {
+	font-weight: bold;
+	width: 49%;
+  }
+
+  .price-msrp
+  {
+  	text-decoration: line-through;
+  }
+
+  .product-grid-item .price-reg, 
+  .product-grid-item .price-msrp, 
+  .search-text .price-reg,
+  .search-text .price-msrp
+  {
+	margin-right: 5px;
+  }
+  
+  .price-free
+  {
+	font-weight: bold;
+	color: #f13d25;
+	margin-bottom: 10px;
+  }
+
+  .price-ours
+  {
+	font-weight: bold;
+	color: #f13d25;
+	text-align: right;
+  }
+
+  .no-msrp .price-ours
+  {
+	color: #000;
+  }
+
+  .product-image
+  {
+	clear: none;
+	float: none;
+	margin-left: 0;
+	padding-left: 0;
+	padding-top: 0;
+	width: 270px;
+  }
+
+  .main-product-image
+  {
+	margin-bottom: 12px;
+	border: 1px solid #9a9898;
+	background-color: #d2d2d2;
+	width: 270px;
+	height: 270px;
+  }
+
+  .more-product-images
+  {
+	padding-left: 12px;
+  }
+
+  .another-image
+  {
+	float: left;
+	display: inline;
+	margin-right: 12px;
+	margin-bottom: 12px;
+	border: 1px solid #9a9898;
+	background-color: #d2d2d2;
+	width: 72px;
+	height: 72px;
+  }
+
+  .node-type-product .quicktabs_wrapper
+  {
+	float: right;
+	display: inline; /* IE */
+	width: 446px;
+  }
+
+  .node-type-product .quicktabs_main { min-height: 227px; }
+  /* for Internet Explorer */
+  /*\*/
+  * html .node-type-product .quicktabs_main { height: 227px; }
+  /**/
+
+/** Product Grid **/
+  .product-grid-item
+  {
+	position: relative;
+	width: 172px;
+	height: 255px;
+	float: left;
+	display: inline; /* IE */
+	overflow: hidden;
+	margin-right: 13px;
+	margin-bottom: 12px;
+	text-align: center;
+  }
+
+  .product-grid-image, .views-field-field-image-cache-fid
+  {
+	width: 170px;
+	height: 170px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #708d92;
+	background-color: #fff;
+	margin-bottom: 2px;
+  }
+
+  .product-grid-title, .views-field-title
+  {
+  }
+
+  .product-grid-item p
+  {
+	margin-bottom: 5px;
+  }
+
+  .product-grid-item .call-us, 
+  .product-grid-item form div, 
+  .views-field-buyitnowbutton form div
+  {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	/* Need left setting for IE8 compatibility mode. */
+	left: 0;
+	bottom: 0;
+  }
+
+/** Admin Menu **/
+  #admin-menu { font-size: 11px; }
+  #admin-menu ul.tabs a { color: #000; }
+  #admin-menu ul.tabs a:hover { color: #000; }
+  #admin-menu .admin-menu-icon { padding-top: 2px; }
+  #admin-menu .admin-menu-users { padding-top: 4px; }
+
+/** Search Results **/
+  .search-results
+  {
+  	border-top: 1px solid #161b64;
+  	padding-top: 10px;
+  	margin-top: 10px;
+  }
+  
+  .search-row
+  {
+  	border-bottom: 1px solid #161b64;
+  	padding-bottom: 10px;
+  	margin-bottom: 10px;
+  }
+  
+  .search-image
+  {
+	float: left;
+	display: inline; /* IE */
+	border: 1px solid #9a9898;
+	background-color: #d2d2d2;
+	width: 84px;
+	height: 84px;
+  	margin-right: 10px;
+  }
+  
+  .search-text
+  {
+	float: left;
+	display: inline; /* IE */
+	width: 612px;
+  }
+  
+  .search-title
+  {
+	font-size: 1.35em;
+  }
+
+  /*******************************************************************
+   * Feature Slideshow Box                                           *
+   *******************************************************************/
+  
+  /**
+   * Feature Box Styles.
+   */
+  
+  #feature-box,
+  .view-home-slideshow
+  {
+	  position: relative;
+	  width: 700px;
+	  margin: 0 auto 10px auto;
+	  border: 1px solid #708D92;
+  }
+  
+  .view-home-slideshow { text-align: center; }
+  
+  #feature-box .block-views
+  {
+	  margin: 0;
+  }
+  
+  #feature-box .view-content,
+  .view-home-slideshow .view-content
+  {
+  	margin: 5px 5px 0 5px;
+  	width: 690px;
+  }
+
+  /**
+   * Controls.
+   */
+  
+  #feature-box ul.slideshow-controls
+  {
+	  display: block;
+	  text-align: center;
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+  }
+  
+  #feature-box ul.slideshow-controls li
+  {
+	  display: inline;
+	  background-image: none;
+	  padding: 0;
+	  margin: 0;
+  }
+  
+  #feature-box ul.slideshow-controls li.first { margin-right: 670px; }
+  
+  .views_slideshow_singleframe_pager div { padding: 0 5px; }
+  
+/** closure **/
+  #closure-blocks /* See also the #page declaration above that this div shares. */
+  {
+  }
+
+/** Prevent overflowing content **/
+  #header,
+  #content,
+  #navbar,
+  #sidebar-left,
+  #sidebar-right,
+  #footer,
+  #closure-blocks,
+  #admin-blocks
+  {
+    overflow: visible;
+    word-wrap: break-word; /* A very nice CSS3 property */
+  }
+
+  #navbar
+  {
+    overflow: hidden; /* May need to be removed if using a dynamic drop-down menu */
+  }
+
+  /* If a div.clear-block doesn't have any content after it and its bottom edge
+     touches the bottom of the viewport, Firefox and Safari will mistakenly
+     place several pixels worth of space between the bottom of the div and the
+     bottom of the viewport. Uncomment this CSS property to fix this.
+     Note: with some over-large content, this property might cause scrollbars
+     to appear on the #page div.
+  */
+  /*
+  #page
+  {
+    overflow-y: hidden;
+  }
+  */
